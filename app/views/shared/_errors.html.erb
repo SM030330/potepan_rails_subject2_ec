@@ -1,0 +1,8 @@
+<% if object.errors.any? %>
+  <div class="alert alert-danger">
+    <p>以下の内容をご確認してください</p>
+    <% object.errors.full_messages.each do |mes| %>
+      <li><%= mes %></li>
+    <% end %>
+  </div>
+<% end %>

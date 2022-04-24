@@ -1,4 +1,4 @@
-class Reserf < ApplicationRecord
+class Reserve < ApplicationRecord
 
   validates :startdate, presense: true
   validates :finishdate, presense: true

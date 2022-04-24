@@ -1,0 +1,15 @@
+<div class="container new-container">
+  <div class="card new-card">
+    <div class="card-body">
+      <h3 class="card-title">新しいアカウントを作成</h3>
+      <%= form_with(model: @user, local: true) do |u| %>
+        <%= render "shared/errors", object: u.object %>
+        <%= u.text_field :name, value: "", placeholder: "ユーザー名", class: "form-control" %>
+        <%= u.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
+        <%= u.text_field :password, placeholder: "パスワード", class: "form-control" %>
+        <%= u.text_field :password_confirmation, placeholder: "パスワード確認", class: "form-control" %>
+        <%= u.submit class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>  
+</div>

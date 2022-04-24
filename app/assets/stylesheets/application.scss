@@ -14,6 +14,7 @@
 
 @import "bootstrap";
 
+// header,footer
 nav {
   background-color: rgb(34, 32, 32);
   .header-right {
@@ -30,6 +31,11 @@ nav {
   p {
     color:aliceblue;
   }
+}
+
+// errors,flash 
+.root-flash {
+  margin-bottom: 0;
 }
 
 // main-page#index
@@ -74,6 +80,26 @@ nav {
         font-size: 30px;
         color: aliceblue;
       }
+    }
+  }
+}
+
+// users#new
+.new-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  .new-card {
+    width: 600px;
+    .form-control {
+      margin-bottom: 10px;
+    }
+    .card-title {
+      text-align: center;
+    }
+    .btn {
+      width: 100%;
     }
   }
 }
