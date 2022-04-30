@@ -14,9 +14,32 @@
 
 @import "bootstrap";
 
+a {
+  text-decoration: none;
+}
+
 // header,footer
 nav {
   background-color: rgb(34, 32, 32);
+  .header-left {
+    display: flex;
+    align-items: center;
+    .input-g-area {
+      margin:0 10px;
+    }
+    .input-g {
+      position: relative;
+      input {
+        padding-left: 40px;
+      }
+      .fas {
+        position: absolute;
+        top: 8px;
+        left: 10px;
+        font-size: 20px;
+      }
+    }
+  }
   .header-right {
     margin-right: 20px;
   }
@@ -90,16 +113,35 @@ nav {
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 30px;
-  .new-card {
-    width: 600px;
-    .form-control {
-      margin-bottom: 10px;
-    }
+  .card-body {
+    width: 550px;
     .card-title {
       text-align: center;
     }
+    .f-row {
+      margin-bottom: 15px;
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      .badge {
+        width:10%;
+        margin-right: 5%;
+      }
+      .field_with_errors {
+        padding:0px;
+        width: 100%;
+      }
+    }
     .btn {
       width: 100%;
+      margin-bottom: 20px;
+    }
+    .link-msg {
+      display: flex;
+      justify-content: center;
     }
   }
 }
+

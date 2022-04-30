@@ -13,5 +13,4 @@ class User < ApplicationRecord
                        allow_nil: true, 
                        length: { minimum: 4}
 
-  
 end

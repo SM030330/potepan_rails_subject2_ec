@@ -1,0 +1,21 @@
+<div class="container new-container">
+  <div class="card new-card">
+    <div class="card-body">
+      <h3 class="card-title">ログイン</h3>
+      <%= form_with(url: log_in_path, scope: :session, local: true) do |u| %>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>        
+          <%= u.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
+        </div>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>
+          <%= u.text_field :password, placeholder: "パスワード", class: "form-control" %>            
+        </div>
+        <%= u.submit "ログイン", class: "btn btn-primary",  turbo: false %>
+      <% end %>
+      <div class="link-msg">
+        <%= link_to "新しいアカウントを作成", new_user_path %> 
+      </div>
+    </div>
+  </div>  
+</div>

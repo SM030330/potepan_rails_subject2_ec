@@ -3,17 +3,17 @@
   <head>
     <title>Myapp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= render("layouts/header") %>
+    <%= render "layouts/header" %>
     <%= render "shared/flash" %>
     <%= yield %>
-    <%= render("layouts/footer") %>
+    <%= render "layouts/footer" %>
   </body>
 </html>

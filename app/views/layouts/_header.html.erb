@@ -1,14 +1,24 @@
 <header>
   <nav class="navbar navbar-light ">
     <div class="header-left">
-      <img src="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png"
-           alt="ポテパン">
-      <input>
-      <input>  
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png", alt: "ポテパン"),
+          root_url %>
+      <div class="input-g input-g-area">
+        <i class="fas fa-map-marker-alt"></i>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      <div class="input-g">
+        <i class="fas fa-search"></i>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
     </div>
-    <div class="header-right"> 
-      <button class="btn btn-primary mx-1">ログイン</button>
-      <button class="btn btn-secondary mx-1">登録する</button>
+    <div class="header-right">
+    <% if current_user  %>
+      <%= link_to "ログアウト", log_out_path, class: "btn btn-primary mx-1" %>
+    <% else %>
+      <%= link_to "ログイン", log_in_path, class: "btn btn-primary mx-1" %>
+    <% end %>
+      <%= link_to "登録する", new_user_path, class: "btn btn-secondary mx-1" %>
     </div>
   </nav>
 </header>
