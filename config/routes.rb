@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   post "log_in", to: "authenticate_user#create"
 
   resources :main_page, only: [:index]
-  resources :users, only: [:new, :create, :update]
-
+  resources :users, only: [:new, :create, :edit, :update]
+  resources :rooms, only: [:show, :new, :create, :update, :delete]
 end

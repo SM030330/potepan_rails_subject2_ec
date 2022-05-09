@@ -42,6 +42,16 @@ nav {
   }
   .header-right {
     margin-right: 20px;
+    display: flex;
+    align-items: center;
+    .avatar-name {
+      margin: 0 1rem 0 0;
+      color:rgba(255, 255, 255, 0.938);
+    }
+    .dropdown-toggle {
+      height: 3.5rem;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -145,3 +155,47 @@ nav {
   }
 }
 
+// users#edit
+.edit-container {
+  height: auto;
+  display: flex;
+  nav {
+    background-color: rgba(255, 255, 255, 0.938);
+    height: auto;
+    padding: 1rem 0.25rem 1rem 2rem;
+    a {
+      border-right: 3px solid #478ffb;
+      padding: 0 0 ;
+      margin: 1rem 1rem 0.25rem 1rem;
+    }
+  }
+  .edit-main {
+    .edit-card {
+      margin: 2rem;
+      h3 {
+        font-size: 1.2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #dededea7;
+      }
+      .row {
+        padding-top: 1.5rem;
+        padding-bottom: 3rem;
+        margin-right: 0px;
+        margin-left: 0px;
+        border-bottom: 1px solid #dededea7;
+        .f-label {
+          font-weight: bold;
+          padding-right: 0.1rem;
+
+        }
+        textarea {
+          height: 8rem;
+        }
+      }
+      .btn {
+        margin-top: 1rem;
+        margin-left: 0.4rem;
+      }
+    }
+  }
+}

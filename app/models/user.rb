@@ -13,4 +13,9 @@ class User < ApplicationRecord
                        allow_nil: true, 
                        length: { minimum: 4}
 
+  has_one_attached :avatar
+
+  def defalt_avatar
+    self.avatar.attach(io: File.open("app/assets/images/default_icon.jpg"), filename: "defalt_icon.jpg", content_type: "image/jpeg") unless self.avatar.attached?
+  end
 end

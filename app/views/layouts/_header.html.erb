@@ -14,11 +14,23 @@
     </div>
     <div class="header-right">
     <% if current_user  %>
-      <%= link_to "ログアウト", log_out_path, class: "btn btn-primary mx-1" %>
+      <p class="avatar-name"><%= @current_user.name%></p>
+      <div class="dropdown">
+        <div data-bs-toggle= "dropdown" aria-expanded = "false">
+          <%= user_avatar @current_user %>
+        </div>  
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to "ルーム登録", new_room_path, class: "dropdown-item" %></li>
+          <li><%= link_to "予約済みルーム一覧", root_url, class: "dropdown-item" %></li>
+          <li><%= link_to "登録済みルーム一覧", root_url, class: "dropdown-item" %></li>
+          <li><%= link_to "設定", root_url, class: "dropdown-item" %></li>
+          <li><%= link_to "ログアウト", log_out_path, class: "dropdown-item" %></li>
+        </ul>
+      </div>
     <% else %>
       <%= link_to "ログイン", log_in_path, class: "btn btn-primary mx-1" %>
-    <% end %>
       <%= link_to "登録する", new_user_path, class: "btn btn-secondary mx-1" %>
+    <% end %>
     </div>
   </nav>
 </header>

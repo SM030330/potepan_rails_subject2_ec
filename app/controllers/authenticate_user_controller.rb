@@ -16,7 +16,7 @@ class AuthenticateUserController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "ログアウトしました"
+    redirect_to root_url, :success => "ログアウトしました"
   end
 
 end
