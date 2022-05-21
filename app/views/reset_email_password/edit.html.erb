@@ -1,0 +1,24 @@
+<div class="container edit_pass-container">
+  <div class="row">
+    <div>
+      <%= form_with(url: account_edit_path, method: :post, scope: :user, local: true) do |u| %>
+        <%= render "shared/errors", object: @user %>
+        <div class="row">
+          <div class="col-5 edit_pass-form">
+            <h3 class="card-title">アカウント編集</h3>
+            <%= u.label :email %>
+            <%= u.text_field :email, placeholder: "メールアドレスを入力してください", value: current_user.email, class: "form-control" %>
+            <label class="f-label">変更後パスワード(変更する場合のみ入力)</label>
+            <%= u.text_field :new_password, class: "form-control" %>
+            <label class="f-label">パスワード確認用(変更する場合のみ入力)</label>
+            <%= u.text_field :new_password_confirmation, class: "form-control" %>
+            <label class="f-label">現在のパスワード</label>
+            <%= u.text_field :current_password, class: "form-control" %>
+            <%= u.submit "更新", class: "btn btn-primary" %>
+            <%= link_to "戻る", edit_user_path(current_user.id), class: "btn btn-back" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

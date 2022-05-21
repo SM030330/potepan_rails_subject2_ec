@@ -26,8 +26,10 @@ class UsersController < ApplicationController
   
   def update
     user = current_user
-    if user.update(user_params)
-      redirect_to root_url, :success => "更新に成功しました"
+    user.avatar.attach(params[:user][:avatar]) if params[:user][:avatar]
+    if user.update(user_params) 
+      flash[:success] = "更新に成功しました"
+      redirect_to root_url
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +41,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :avatar, :info)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :info)
   end
-
+      
 end

@@ -16,6 +16,12 @@ class User < ApplicationRecord
   has_one_attached :avatar
 
   def defalt_avatar
-    self.avatar.attach(io: File.open("app/assets/images/default_icon.jpg"), filename: "defalt_icon.jpg", content_type: "image/jpeg") unless self.avatar.attached?
+    unless self.avatar.attached?
+      avatar =  self.avatar.variant(resize_to_limit: [100, 100], 
+                                    format: :jpeg, 
+                                    saver: { subsample_mode: "on", strip: true, interlace: true, quality: 80 })
+
+      avatar.attach(io: File.open("app/assets/images/default_icon.jpg"), filename: "defalt_icon.jpg", content_type: "image/jpeg")             
+    end
   end
 end

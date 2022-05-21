@@ -10,6 +10,7 @@ ja:
         email: メールアドレス
         info: 説明文
         password: パスワード
+        password_confirmation: 確認用パスワード
       room:
         name: 部屋名
         info: 説明文

@@ -5,9 +5,9 @@ module ApplicationHelper
 
   def user_avatar(user)
     if user.avatar.attached?
-      image_tag user.avatar, class: "dropdown-toggle", id: "dropdownMenuButton1"
+      image_tag user.avatar, class: "dropdown-toggle user-icon", id: "dropdownMenuButton1"
     else
-      image_tag "default_icon.jpg", class: "dropdown-toggle", id: "dropdownMenuButton1"
+      image_tag "default_icon.jpg", class: "dropdown-toggle user-icon", id: "dropdownMenuButton1"
     end
   end
 end

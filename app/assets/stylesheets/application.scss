@@ -48,11 +48,11 @@ nav {
       margin: 0 1rem 0 0;
       color:rgba(255, 255, 255, 0.938);
     }
-    .dropdown-toggle {
-      height: 3.5rem;
-      border-radius: 50%;
-    }
   }
+}
+.user-icon {
+  height: 3.5rem;
+  border-radius: 50%;
 }
 
 .footer-container {
@@ -163,10 +163,14 @@ nav {
     background-color: rgba(255, 255, 255, 0.938);
     height: auto;
     padding: 1rem 0.25rem 1rem 2rem;
-    a {
-      border-right: 3px solid #478ffb;
+    .nav-link {
+      color:rgb(34, 32, 32);
       padding: 0 0 ;
       margin: 1rem 1rem 0.25rem 1rem;
+    }
+    .active {
+      border-right: 3px solid #478ffb;
+      color: #478ffb;
     }
   }
   .edit-main {
@@ -183,18 +187,45 @@ nav {
         margin-right: 0px;
         margin-left: 0px;
         border-bottom: 1px solid #dededea7;
-        .f-label {
-          font-weight: bold;
-          padding-right: 0.1rem;
-
-        }
-        textarea {
-          height: 8rem;
-        }
       }
+      .f-label {
+        font-weight: bold;
+        padding-right: 0.1rem;
+
+      }
+      textarea {
+        height: 8rem;
+      }
+      .edit-avatar {
+        display: flex;
+        justify-content: center;
+      }
+    }
+    .btn {
+      margin-top: 1rem;
+      margin-left: 0.4rem;
+    }
+  }
+}
+// users#edit_pass
+.edit_pass-container {
+  .row {
+    justify-content: center;
+    .edit_pass-form {
+      text-align: center;
+      line-height: 3rem;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
       .btn {
-        margin-top: 1rem;
-        margin-left: 0.4rem;
+        width: 100%;
+      }
+      .btn-back {
+        background-color: #fff;
+        color: #0d6efd;
+        border-color: #0d6efd;
+      }
+      .btn-back:hover {
+        opacity: 0.5;
       }
     }
   }
