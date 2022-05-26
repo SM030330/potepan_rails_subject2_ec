@@ -230,3 +230,27 @@ nav {
     }
   }
 }
+
+// rooms#new
+.room-new-card {
+  align-items: center;
+  .card-body {
+    width: 90%;
+    margin-top: 3rem;
+    .row {
+      margin: 3rem 0;
+      .col-3 {
+      text-align: center;
+      }
+    }
+    
+  }
+}
+
+// room#index
+.rooms-container {
+  .count-result {
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
+}

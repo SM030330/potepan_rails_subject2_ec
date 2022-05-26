@@ -4,8 +4,10 @@
       <div class="card-body">
         <h3 class="card-title">Potepan Shareでまだ体験したことのない旅をしよう</h3>
         <label class="form-label">エリア</label>
-        <input class="form-control" placeholder="東京">
-        <a href="#" class="btn btn-primary">探す</a>
+        <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+          <%= f.text_field :rooms_find_key, placeholder: "東京", class: "form-control" %>
+          <%= f.submit "探す", class: "btn btn-primary" %>
+        <% end %>       
       </div>
     </div>
   </div>
@@ -15,19 +17,19 @@
   <div class="row">
     <div class="col-3 images">
       <span>東京</span>
-      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"), root_url %>
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg"), rooms_path(rooms_find_key: "東京") %>
     </div>
     <div class="col-3 images">
       <span>大阪</span>
-      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"), root_url %>
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg"), rooms_path(rooms_find_key: "大阪") %>
     </div>
     <div class="col-3 images">
       <span>京都</span>
-      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"), root_url %>
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg"), rooms_path(rooms_find_key: "京都") %>
     </div>
     <div class="col-3 images">
       <span>札幌</span>
-      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"), root_url %>
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg"), rooms_path(rooms_find_key: "札幌") %>
     </div>
   </div>
 </div>

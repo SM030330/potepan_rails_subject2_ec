@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   post "account_edit", to: "reset_email_password#update"
 
   resources :main_page, only: [:index]
-  resources :users, only: [:show, :new, :create, :edit, :update]
-  resources :rooms, only: [:show, :new, :create, :update, :delete]
+  resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :rooms, only: [:index,:show, :new, :create, :update, :delete, :destroy]
 end

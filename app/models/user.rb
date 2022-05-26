@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   
-  has_many :rooms
-  
-  validates :name, length: { maximum:10 }
+  has_many :rooms, dependent: :destroy 
+
+  validates :name, length: { maximum:10 },
+                    presence: true
   validates :info, length: { maximum:250 }
+                    
   validates :email, presence: true,
                     uniqueness: true
 

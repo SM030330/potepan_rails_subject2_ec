@@ -1,9 +1,17 @@
 class Room < ApplicationRecord
 
-  validates :name, lenght{ maximum:10 }
+  belongs_to :user
+  
+  has_one_attached :room_img
 
-  validates :info, lenght{ maximum:250 }
+  validates :name, length:{ maximum:10 },
+                    presence: true
+  validates :info, length:{ maximum:250 },
+                    presence: true
+  validates :value, presence: true,
+                    numericality: true
+  validates :address, presence: true
+  validates :room_img, presence: true
 
-  validates :value, uniqueness: true,
-
+  
 end
