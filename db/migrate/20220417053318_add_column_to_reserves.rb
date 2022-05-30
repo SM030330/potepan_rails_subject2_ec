@@ -1,14 +1,11 @@
 class AddColumnToReserves < ActiveRecord::Migration[7.0]
   def change
     change_table :reserves do |t|
-      t.integer :user_id
-      t.integer :room_id
-      t.date :startdate
-      t.date :finishdate
-      t.integer :member_sum
+      t.date :startdate, null: false
+      t.date :finishdate, null: false
+      t.integer :member_sum, null: false
+      t.references :user, null: false, foreign_key: true
+      t.references :room, null: false, foreign_key: true
     end
-    add_index :reserves, :user_id
-    add_index :reserves, :room_id
-    add_index :reserves, [:room_id, :user_id], unique: true
   end
 end

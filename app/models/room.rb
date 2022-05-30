@@ -1,6 +1,8 @@
 class Room < ApplicationRecord
 
-  belongs_to :user
+  has_many :reserves
+  has_many :reserve_users, through: :reserves,
+                           source: :room
   
   has_one_attached :room_img
 

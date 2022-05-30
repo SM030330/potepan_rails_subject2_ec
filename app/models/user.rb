@@ -1,11 +1,13 @@
 class User < ApplicationRecord
   
   has_many :rooms, dependent: :destroy 
+  has_many :reserves, dependent: :destroy
+  has_many :reserved_room, through: :reserves,
+                            source: :room
 
   validates :name, length: { maximum:10 },
                     presence: true
-  validates :info, length: { maximum:250 }
-                    
+  validates :info, length: { maximum:250 }                    
   validates :email, presence: true,
                     uniqueness: true
 
@@ -17,13 +19,11 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  def defalt_avatar
+  def resize_avatar(user_avatar)
     unless self.avatar.attached?
-      avatar =  self.avatar.variant(resize_to_limit: [100, 100], 
+      self.avatar.variant(resize_to_limit: [100, 100], 
                                     format: :jpeg, 
-                                    saver: { subsample_mode: "on", strip: true, interlace: true, quality: 80 })
-
-      avatar.attach(io: File.open("app/assets/images/default_icon.jpg"), filename: "defalt_icon.jpg", content_type: "image/jpeg")             
+                                    saver: { subsample_mode: "on", strip: true, interlace: true, quality: 80 })   
     end
   end
 end

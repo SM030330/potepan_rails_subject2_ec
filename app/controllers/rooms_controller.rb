@@ -3,6 +3,11 @@ class RoomsController < ApplicationController
   def index
     @rooms = find_rooms(params[:rooms_find_key])
   end
+
+  def index_created
+    @rooms = current_user.rooms
+  end
+
   def show
   end
 

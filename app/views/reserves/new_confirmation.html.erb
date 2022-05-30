@@ -1,0 +1,39 @@
+<div class="contianer my-3 reserve-container">
+  <%= form_with( model: @reserve, method: :post, local: true) do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %>
+    <%= f.hidden_field :member_sum %>
+    <div class="row justify-content-center">
+      <div class="card col-7">
+        <div class="card-body">
+          <h5 class="card-title card-border my-3">予約内容確認</h5>
+          <div class="card-text">
+            <div class="my-5">
+              <h4>￥<%= @room.value %>/日</h4>
+            </div>
+            <div class="mb-4">
+              <lavel>開始日</lavel>
+              <%= f.date_field :startdate, class: "form-control"%>  
+            </div>
+            <div class="mb-4">
+              <lavel>終了日</lavel>
+              <%= f.date_field :finishdate, class: "form-control" %>
+            </div>
+            <div class="card-border mb-4">
+              <P>使用日数：<%= (@reserve.finishdate - @reserve.startdate).to_i %>日</P>
+            </div>
+            <div class="card-border mb-4">
+              <p>人数：<%= @reserve.member_sum %>人</p>
+            </div>
+            <div class="mb-4">
+              <p>合計金額</p>
+              <p><%= @reserve.value_sum %>円</p>
+            </div>
+            <p class="mb-3">上記内容でよろしければ「予約を確定」を押してください</p>
+          </div>
+          <%= f.submit "予約を確定", class: "btn btn-primary my-2" %>
+          <%= link_to "ルーム詳細に戻る",new_reserve_path(room_id: @reserve.room_id), class: "btn btn-secondary" %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

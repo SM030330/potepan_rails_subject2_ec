@@ -1,19 +1,20 @@
 <div class="container rooms-container">
-  <!-- 集計 -->
   <p class="count-result">検索結果：<%= count_rooms %>件</p>  
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
     <% @rooms.each do |r| %>
       <div class="col">
-        <div class="card shadow-sm">
-          <%= image_tag r.room_img, class: "bd-placeholder-img card-img-top"%>
-          <div class="card-body">
-            <%= r.name %>
-            <div class="card-text"><%= r.address %></div>
-            <div class="d-flex justify-content-end align-items-center">
-              <div class="text-muted">￥<%= r.value %></div>
+        <%= link_to new_reserve_path(room_id: r.id) do %>
+          <div class="card shadow-sm">
+            <%= image_tag r.room_img, class: "bd-placeholder-img card-img-top", alt: "ルーム画像"%>
+            <div class="card-body">
+              <%= r.name %>
+              <div class="card-text"><%= r.address %></div>
+              <div class="d-flex justify-content-end align-items-center">
+                <div class="text-muted">￥<%= r.value %></div>
+              </div>
             </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %> 
   </div>

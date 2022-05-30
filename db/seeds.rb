@@ -7,15 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # ユーザー作成
-19.times do |n|
-  name  = "nameNo#{n+1}"
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,)
-end
+# 19.times do |n|
+#   name  = "nameNo#{n+1}"
+#   email = "example-#{n+1}@railstutorial.org"
+#   password = "password"
+#   User.create!(name:  name,
+#                email: email,
+#                password:              password,
+#                password_confirmation: password)
+# end
 
 # ルーム作成(東京)
 10.times do |n|

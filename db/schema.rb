@@ -45,12 +45,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_133517) do
   create_table "reserves", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "room_id"
-    t.date "startdate"
-    t.date "finishdate"
-    t.integer "member_sum"
-    t.index ["room_id", "user_id"], name: "index_reserves_on_room_id_and_user_id", unique: true
+    t.date "startdate", null: false
+    t.date "finishdate", null: false
+    t.integer "member_sum", null: false
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
     t.index ["room_id"], name: "index_reserves_on_room_id"
     t.index ["user_id"], name: "index_reserves_on_user_id"
   end
@@ -58,28 +57,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_07_133517) do
   create_table "rooms", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
-    t.text "info"
-    t.integer "value"
-    t.string "address"
+    t.string "name", null: false
+    t.text "info", null: false
+    t.integer "value", null: false
+    t.string "address", null: false
     t.bigint "user_id", null: false
-    t.index ["address"], name: "index_rooms_on_address"
-    t.index ["info"], name: "index_rooms_on_info"
-    t.index ["name"], name: "index_rooms_on_name"
+    t.index ["name", "info", "address"], name: "index_rooms_on_name_and_info_and_address"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name", default: "user"
+    t.string "name", default: "user", null: false
     t.text "info"
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.boolean "login_acitve"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "reserves", "rooms"
+  add_foreign_key "reserves", "users"
   add_foreign_key "rooms", "users"
 end

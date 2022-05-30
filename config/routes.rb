@@ -9,8 +9,12 @@ Rails.application.routes.draw do
   post "log_in", to: "authenticate_user#create"
   get "account_edit", to: "reset_email_password#edit"
   post "account_edit", to: "reset_email_password#update"
+  get "reserve_confirmation", to: "reserves#new_confirmation"
+  get "index_reserved", to: "reserves#index_reserved"
+  get "index_created", to: "rooms#index_created"
 
   resources :main_page, only: [:index]
   resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
   resources :rooms, only: [:index,:show, :new, :create, :update, :delete, :destroy]
+  resources :reserves
 end
