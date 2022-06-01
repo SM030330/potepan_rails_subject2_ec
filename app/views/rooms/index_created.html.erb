@@ -1,0 +1,34 @@
+<div class="container index-created my-5 text-center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ルーム画像</th>
+        <th scope="col">ルーム名</th>
+        <th scope="col">ルーム紹介</th>
+        <th scope="col">料金</th>
+        <th scope="col">作成日</th>
+      </tr>
+    </thead>
+    <tbody class="align-middle ">
+      <% unless @rooms.blank? %>
+        <% @rooms.each do |r| %>      
+          <tr>
+            <th scope="row">
+              <%= link_to new_reserve_path(room_id: r.id) do %>
+                <%= image_tag r.room_img%>
+              <% end %>
+            </th>     
+            <td>
+              <%= link_to new_reserve_path(room_id: r.id) do %>   
+                <%= r.name %>
+              <% end %>  
+            </td>
+            <td><%= r.info %></td>
+            <td><%= r.value %></td>
+            <td><%= r.created_at.to_date %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

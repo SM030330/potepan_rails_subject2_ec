@@ -1,0 +1,55 @@
+
+<div class="edit-container">
+  <nav class="nav flex-column col-2 alin-item">
+    <%= link_to "アカウント", user_path(current_user.id), class: "nav-link" %>  
+
+    <div aria-current="page">
+      <%= link_to "プロフィール", edit_user_path(current_user.id), class: "nav-link active" %>  
+    </div>
+  </nav>  
+  <div class="edit-main bg-light col-10">
+    <div class="container">
+      <div class="edit-card card">
+        <div class="card-body">
+          <h3 class="card-title">プロフィール</h3>
+          <%= form_with(model: current_user, local: true) do |u| %>
+            <%= render "shared/errors", object: u.object %>
+            <div class="row">
+              <div class="edit-avatar">
+                <%= user_avatar(current_user) %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label class="f-label">アイコン画像</label>
+                <span class="badge bg-danger">必須</span>  
+              </div>
+              <div class="col-8">
+                <%= u.file_field :avatar  %> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label class="f-label">名前</label>
+                <span class="badge bg-danger">必須</span>  
+              </div>
+              <div class="col-8">
+                <%= u.text_field :name, placeholder: "名前を入力", class: "form-control"  %> 
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label class="f-label">自己紹介文</label>
+                <span class="badge bg-danger">必須</span>  
+              </div>
+              <div class="col-8">
+                <%= u.text_area :info, placeholder: "自己紹介文を入力", class: "form-control" %> 
+              </div>
+            </div>
+            <%= u.submit class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>

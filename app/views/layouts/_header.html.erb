@@ -1,0 +1,40 @@
+<header>
+  <nav class="navbar navbar-light ">
+    <div class="header-left">
+      <%= link_to image_tag("https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png", alt: "ポテパン"),
+          root_url %>
+      <div class="input-g input-g-area">
+        <i class="fas fa-map-marker-alt"></i>
+        <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+          <%= f.text_field :areaword, placeholder: "エリア", class: "form-control" %>
+        <% end %>   
+      </div>
+      <div class="input-g">
+        <i class="fas fa-search"></i>
+        <%= form_with url: rooms_path, method: :get, local: true do |f| %>
+          <%= f.text_field :anyword, placeholder: "キーワード", class: "form-control" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="header-right">
+    <% if current_user  %>
+      <p class="avatar-name"><%= @current_user.name%></p>
+      <div class="dropdown">
+        <div data-bs-toggle= "dropdown" aria-expanded = "false">
+          <%= user_avatar(@current_user) %>
+        </div>  
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
+          <li><%= link_to "ルーム登録", new_room_path, class: "dropdown-item" %></li>
+          <li><%= link_to "予約済みルーム一覧", index_reserved_url, class: "dropdown-item" %></li>
+          <li><%= link_to "登録済みルーム一覧", index_created_url, class: "dropdown-item" %></li>
+          <li><%= link_to "設定", edit_user_path(@current_user.id), class: "dropdown-item" %></li>
+          <li><%= link_to "ログアウト", log_out_path, class: "dropdown-item" %></li>
+        </ul>
+      </div>
+    <% else %>
+      <%= link_to "ログイン", log_in_path, class: "btn btn-primary mx-1" %>
+      <%= link_to "登録する", new_user_path, class: "btn btn-secondary mx-1" %>
+    <% end %>
+    </div>
+  </nav>
+</header>

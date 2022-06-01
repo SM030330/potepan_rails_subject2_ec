@@ -1,0 +1,30 @@
+<div class="container new-container">
+  <div class="card new-card">
+    <div class="card-body">
+      <h3 class="card-title">新しいアカウントを作成</h3>
+      <%= form_with(model: @user, local: true) do |u| %>
+        <%= render "shared/errors", object: u.object %>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>
+          <%= u.text_field :name, value: "", placeholder: "ユーザー名", class: "form-control" %> 
+        </div>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>        
+          <%= u.text_field :email, placeholder: "メールアドレス", class: "form-control" %>
+        </div>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>
+          <%= u.text_field :password, placeholder: "パスワード", class: "form-control" %>            
+        </div>
+        <div class="f-row">
+          <span class="badge bg-danger">必須</span>
+          <%= u.text_field :password_confirmation, placeholder: "パスワード確認", class: "form-control" %>            
+        </div>
+        <%= u.submit class: "btn btn-primary" %>
+      <% end %>
+    <div class="link-msg">
+        <%= link_to "すでにアカウントをお持ちの方はログイン", log_in_path %> 
+      </div>
+    </div>
+  </div>  
+</div>

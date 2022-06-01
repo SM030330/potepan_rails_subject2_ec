@@ -1,0 +1,43 @@
+<div class="container reserve-container my-5">
+  <%= form_with(url: reserve_confirmation_url, method: :get, scope: :reserve, local: true) do |f| %>
+    <%= f.hidden_field :room_id, value: @room.id %> 
+    <%= render "shared/errors", object: @reserve %>
+    <div class="row">
+      <div class="col-8">
+        <%= image_tag @room.room_img, class: "room_img" %>
+      </div>
+      <div class="card col-4">
+        <div class="card-body">
+          <h5 class="card-title my-3">￥<%= @room.value %>/日</h5>
+          <div class="card-text">
+            <div class="mb-2">
+              <lavel>開始日</lavel>
+              <%= f.date_field :startdate, class: "form-control"%>  
+            </div>
+            <div class="mb-2">
+              <lavel>終了日</lavel>
+              <%= f.date_field :finishdate, class: "form-control" %>
+            </div>
+            <div class="mb-2">
+              <lavel>人数</lavel>
+              <%= f.number_field :member_sum, class: "form-control" %>
+            </div>          
+          </div>
+          <%= f.submit "予約する", class: "btn btn-primary my-2" %>
+        </div>
+      </div>
+    </div>
+    <div class="my-4">
+      <div class="d-flex">
+        <%= user_avatar(room_owner(@room.user_id)) %>
+        <div class="mx-3">
+          <p>物件名：<%= @room.name %></p>
+          <p>住所：<%= @room.address %></p>
+        </div>
+      </div>
+      <div class="mx-4">
+        <p>ルーム紹介：<%= @room.info %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
