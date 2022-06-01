@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   resources :main_page, only: [:index]
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :rooms, only: [:index,:show, :new, :create]
-  resources :reserves, only[:new, :create]
+  resources :reserves, only: [:new, :create]
 end
