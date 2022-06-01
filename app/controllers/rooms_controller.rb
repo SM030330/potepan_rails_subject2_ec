@@ -1,7 +1,14 @@
 class RoomsController < ApplicationController
 
   def index
-    @rooms = find_rooms(params[:rooms_find_key])
+    # @rooms = find_rooms(params[:rooms_find_key])
+    params.each do |key, value|
+      if key == "areaword"
+        @rooms = Room.find_rooms_area(value)
+      elsif key == "anyword"
+        @rooms = Room.find_rooms_any(value)
+      end
+    end
   end
 
   def index_created
@@ -38,8 +45,4 @@ class RoomsController < ApplicationController
     params.require(:room).permit(:name, :info, :value, :address)
   end
 
-  def find_rooms(rooms_find_key)
-    Room.where("address like (:find_address)",
-                find_address: rooms_find_key)
-  end
 end

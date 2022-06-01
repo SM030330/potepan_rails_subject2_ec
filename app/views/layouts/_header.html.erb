@@ -6,13 +6,13 @@
       <div class="input-g input-g-area">
         <i class="fas fa-map-marker-alt"></i>
         <%= form_with url: rooms_path, method: :get, local: true do |f| %>
-          <%= f.text_field :rooms_find_key, placeholder: "エリア", class: "form-control" %>
+          <%= f.text_field :areaword, placeholder: "エリア", class: "form-control" %>
         <% end %>   
       </div>
       <div class="input-g">
         <i class="fas fa-search"></i>
         <%= form_with url: rooms_path, method: :get, local: true do |f| %>
-          <%= f.text_field :rooms_find_key, placeholder: "キーワード", class: "form-control" %>
+          <%= f.text_field :anyword, placeholder: "キーワード", class: "form-control" %>
         <% end %>
       </div>
     </div>

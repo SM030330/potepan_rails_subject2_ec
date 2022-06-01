@@ -15,5 +15,14 @@ class Room < ApplicationRecord
   validates :address, presence: true
   validates :room_img, presence: true
 
-  
+  def self.find_rooms_any(keyword)
+    where("name LIKE :word OR info LIKE :word OR address LIKE :word",
+           word: "%#{keyword}%")
+  end
+
+  def self.find_rooms_area(area)
+    where("address LIKE :word",
+           word: "%#{area}%")
+  end
+
 end
