@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "index_created", to: "rooms#index_created"
 
   resources :main_page, only: [:index]
-  resources :users, only: [:show, :new, :create, :edit, :update, :destroy]
-  resources :rooms, only: [:index,:show, :new, :create, :update, :delete, :destroy]
-  resources :reserves
+  resources :users, only: [:show, :new, :create, :edit, :update]
+  resources :rooms, only: [:index,:show, :new, :create]
+  resources :reserves, only[:new, :create]
 end
